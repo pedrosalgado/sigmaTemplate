@@ -1,0 +1,16 @@
+
+<?php $this->load->view('header'); ?>
+<div id="container">
+<?php $this->load->view('navigation'); ?>
+	
+	<div class="content">
+	<div class="top"><h2>Associação dos Industriais Portugueses de Iluminação</h2></div>
+	<div class="dynamic">
+	<h3><?php isset($title) ? (strlen($title) > 0 ? print_r( $title) : '') : '' ; ?></h3>
+	<br>
+	<p><?php isset($title) ? (strlen($body) > 0 ? print_r( $body) : '') : '' ; ?></p>
+	</div>	
+	</div>
+	<br style="clear:both"/>
+</div>
+<?php $this->load->view('footer'); ?>

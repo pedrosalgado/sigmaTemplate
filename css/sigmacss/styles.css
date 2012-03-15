@@ -1,0 +1,325 @@
+@font-face {
+    font-family: Sigma;
+    src: url('../../resources/bitwise.ttf');
+}
+
+#header {
+    height: 126px;
+    line-height: 126px;
+    /*border-bottom: 1px solid #999;
+    background: black url(../resources/Logo.jpg) no-repeat center center;*/
+}
+#header h1 {
+    font-family: Sigma, Helvetica;
+}
+#mainnav {
+    width: 72%;
+    border-bottom: 1px solid #999;
+    line-height: 25px;
+    float: left
+}
+#loginbox {
+    width: 22.9%;
+    border-bottom: 1px solid #999;
+    line-height: 25px;
+    float: right
+}
+#sideCnt {
+    width: 22%;
+    padding-top: 2%;
+    float: right;
+}
+#sideCnt h4 {
+    font-size: 18px 
+    
+}
+#sideCnt h3.actionBar {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    line-height: 35px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px
+}
+#sideCnt h3.actionBar a {
+    text-decoration: none
+}
+#sideCnt h3.actionBar a:hover {
+    text-decoration: underline
+}
+#mainCnt {
+    width: 72%;
+    padding: 2%;
+    float: left;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #999;
+    overflow: hidden
+}
+#footer {
+    border-top: 1px solid #999;
+    padding-top: 15px;
+    margin-top: 15px
+}
+
+body {
+    font-family: Sigma, Helvetica;
+    font-size: 13px;
+    width: 1200px;
+    margin: 0 auto;
+    background: #666;
+    color: #ccc
+
+}
+h1,h2,h3,h4 {
+    font-family: Sigma, Helvetica;
+    color:#999;
+    margin-bottom: 15px;
+    font-weight: normal
+}
+h1,h2 {
+
+}
+h3,h4 {
+    text-indent: 10px
+}
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 18px;
+}
+h3 {
+    font-size: 15px;
+}
+p {
+    color: silver;
+}
+a {
+    font-family: Sigma, Helvetica;
+    color: #999967
+}
+.tableBox {
+     margin-bottom: 20px;
+}
+table {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+   
+    border-color: #999;
+    border-style: solid;
+}
+table th:first-child,table td:first-child {
+    border:none;
+    border-right: 1px solid #999;
+    padding-left: 8px
+}
+table th:last-child,table td:last-child {
+    border:none;
+
+}
+table td:first-child, table td:last-child {
+    border-top: 1px solid #999;
+}
+table td{
+    padding: 3px;
+    border:none;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+}
+table th{
+    padding: 3px;
+    border:none;
+    border-right: 1px solid #999;
+}
+table th.actionTH,table td.actionTD {
+    width:50px;
+    text-align: center
+}
+
+form .field {
+    width: 100%;
+    margin-bottom: 20px;
+
+    float: left;
+    
+}
+form div label {
+    float:left;
+    display: inline-block;
+    width: 80px;
+    margin-right: 20px;
+    line-height: 22px;
+    padding-left: 15px;
+    height: 25px;
+    -webkit-border-radius: 9px 0 0 15px;
+    -moz-border-radius: 9px 0 0 15px;
+    border-radius: 9px 0 0 15px;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999
+}
+.cleditorMain {
+    float: left;
+    width: 85% !important;
+}
+form select {
+    height: 26px;
+    line-height: 30px;
+    font-size: 15px 
+} 
+form input {
+    height: 22px;
+}
+form {
+    margin-bottom: 15px;
+}
+form p {
+    margin-bottom: 5px;
+}
+.item {
+    float: left;
+    padding: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+}
+.moduleBox {
+    padding: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #999;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+ul.dbtables {
+    list-style-type: disc;
+    list-style-position: inside;
+    color: #333;
+}
+ul.dbtables li {
+    margin-bottom: 10px;
+    line-height: 22px;
+    border-bottom: 1px solid #999;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+ul.dbtables a{
+    text-decoration: none
+}
+ul.dbtables .actionBar {
+    height: 12px;
+    line-height: 12px;
+    margin-left: 12px;
+    margin-top: 6px;
+}
+
+.date {
+    font-size: 12px;
+    margin-left: 50%;
+}
+
+.addBtn,.delBtn,.editBtn,.consultBtn {
+    font-size: 0px;
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+}
+.addBtn {
+    background: url('../../resources/icons/plus_light_alt.png') center center no-repeat;
+}
+.addBtn:hover {
+    background: url('../../resources/icons/plus_alt.png') center center no-repeat;
+}
+.delBtn {
+    background: url('../../resources/icons/minus_light_alt.png') center center no-repeat;
+}
+.delBtn:hover {
+    background: url('../../resources/icons/minus_alt.png') center center no-repeat;
+}
+.editBtn {
+    background: url('../../resources/icons/wrench.png') center center no-repeat;
+}
+.editBtn:hover {
+    background: url('../../resources/icons/wrench_alt.png') center center no-repeat;
+}
+.consultBtn {
+    background: url('../../resources/icons/eye.png') center center no-repeat;
+}
+.consultBtn:hover {
+    background: url('../../resources/icons/eye_alt.png') center center no-repeat;
+}
+.logoutBtn {
+    padding-right: 20px;
+    background: url('../../resources/icons/sign.png') center right no-repeat;
+}
+input[type='submit'] {
+    background: none repeat scroll 0 0 black;
+    border: 2px solid #999666;
+    color: #999666;
+    float: right;
+    height: 26px;
+}
+input[type='submit']:hover {
+    background: none repeat scroll 0 0 #999666;
+    border: 2px solid black;
+    color: black;
+    cursor: pointer
+}
+input[type='checkbox'] {
+    vertical-align: middle
+}
+fieldset {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.fileList {
+    width: 100%
+}
+.fileItem {
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 50%;
+}
+.fileItem h5 {
+    margin-bottom: 10px
+}
+.fileItem .thumb {
+    float: left;
+    margin-right: 15px;
+}
+.fileItem .actionBar {
+    border: 1px solid #999;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 0 10px;
+    line-height: 24px;
+    width: 33%;
+    text-align: center
+}
+.fileItem .actionBar a {
+    vertical-align: middle
+}
+
+.left {
+    float:left
+}
+.right {
+    float:right
+}
+.w50 {
+    width: 49%;
+}
+.clear {
+    clear:both
+}

@@ -1,0 +1,26 @@
+
+<?php $this->load->view('header'); ?>
+<div id="container">
+	<div class="sidebar">
+
+	<div class="top">
+	<a href="" class="eng flag"></a>
+	<a href="" class="pt flag"></a>
+	</div>
+	<ul class="nav">
+	<li class="home"><a href="" >Home</a></li>
+	<li><a href="" > Actividades </a></li>
+	<li><a href="" >Produtos</a></li>
+	<li><a href="" >Contactos</a></li>	
+	</ul>	
+	
+	</div>
+	<div class="content">
+	<div class="top"><h2>Associação dos Industriais Portugueses de Iluminação</h2></div>
+	<div class="slider">
+	<img src=<?php base_url(); ?>"resources/logo.png" alt="AIPI" />
+	</div>	
+	</div>
+	<br style="clear:both"/>
+</div>
+<?php $this->load->view('footer'); ?>

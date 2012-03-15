@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>AIPI</title>
+	<link rel="StyleSheet" href="<?php echo base_url(); ?>css/reset.css" >
+	<link rel="StyleSheet" href="<?php echo base_url(); ?>css/style.css" >
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src=<?php base_url(); ?>"js/jquery.easing.1.3.js"></script>
+	<!--<script src=<?php base_url(); ?>"js/jquery.scrollTo.js"></script>
+	<!--<script src=<?php base_url(); ?>"js/jquery.localscroll-min.js"></script>-->
+
+	<script type="text/javascript" >
+	/*var scrollSpeed = 600;
+	var scrollEffect = "easeInOutExpo";
+		
+		$(document).ready(function() {
+			var offset = $('#wrapper ').offset();
+			$('html,body').animate({
+				scrollTop: offset.top,
+				scrollLeft: offset.left,				
+		}, scrollSpeed, scrollEffect); 	
+		});*/
+
+		$(document).ready(function() {
+			$(".nav li a").slideToggle("slow");
+			
+	 		$("span.home").click(function (e) {
+      		$(".linkhome").slideToggle("slow");
+   		});
+			$("span.act").click(function () {
+      		$(".linkact").slideToggle("slow");
+   		});
+   		$("span.prods").click(function () {
+      		$(".linkprods").slideToggle("slow");
+   		});
+			$("span.cont").click(function () {
+      		$(".linkcont").slideToggle("slow");
+   		});
+		});
+	</script>
+</head>
+<body >
+<div id="wrapper">
+<div id="header">
+<form>
+<label>Procurar</label>
+<input type="text" />
+</form>
+<form>
+<p><span class="leftBrckt"></span><label class="loginLbl">login</label><span class="rightBrckt"></span></p>
+<div class="hidden">
+<input type="text" />
+<input type="password" />
+</div>
+</form>
+
+</div>

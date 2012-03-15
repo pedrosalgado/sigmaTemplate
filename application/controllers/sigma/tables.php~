@@ -1,0 +1,76 @@
+<?php
+class Tables extends SIGMA_Controller {
+
+    function  __construct() {
+        parent::__construct();
+        $this->load->model('somasoft/modules_model','model');
+    }
+
+
+    function index($table = '') {
+        $data['title'] = "SomaSoft - Home";
+        $data['desc'] = "";
+        $data['keywords'] = "";
+        $data['urlsuffix'] = "somasoft/";
+        $data['tables'] = $this->model->getTables();
+        $data['prefixAdd'] = "records/add";
+        $data['prefixDel'] = "records/del";
+        $data['prefixEdit'] = "records/edit";
+        $data['prefixConsult'] = "records/consult";
+        $data['prefixEditTable'] = "tables/edit";
+        $data['prefixAddTable'] = "tables/add";
+        $data['prefixDelTable'] = "tables/do_del";
+        
+        if(strlen($table) > 0) {
+            $data['fields'][$table] =  $this->model->getFields($table);
+
+            $data['resultsArray'][$table] = $this->model->getRecords($table);
+        }
+        else {
+            foreach($this->model->getTables() as $table) {
+                $data['fields'][$table] =  $this->model->getFields($table);
+            }
+            $data['resultsArray'] = $this->model->getTablesRecords();
+        }
+        $this->load->view('somasoft/index', $data);
+    }
+    
+    function edit($table) {
+        $data['title'] = "SomaSoft - Editar Tabela";
+        $data['desc'] = "";
+        $data['keywords'] = "";
+        $data['urlsuffix'] = "somasoft/";
+        $data['tables'] = $this->model->getTables();
+        $data['prefixAdd'] = "records/add";
+        $data['prefixDel'] = "records/del";
+        $data['prefixEdit'] = "records/edit";
+        $data['prefixConsult'] = "records/consult";
+        $data['prefixEditTable'] = "tables/edit";
+        $data['prefixAddTable'] = "tables/add";
+        $data['prefixDelTable'] = "tables/do_del";
+        $data['table'] = $table;
+        $data['results'] = $this->model->alterTable($table);
+        $this->load->view('somasoft/tables/change', $data);
+    }
+    function do_edit($table) {
+        $data['results'] = $this->model->do_alterTable($table,$_POST);
+        redirect('somasoft/tables/edit/'.$table);
+    }
+    function do_addTable() {
+        $data['results'] = $this->model->do_addTable($_POST);
+        redirect('somasoft/tables/edit/'.$_POST['name']);
+    }
+    function do_add($table) {
+        $data['results'] = $this->model->do_addColTable($table,$_POST);
+        redirect('somasoft/tables/edit/'.$table);
+    }
+    function do_delCol($table) {
+        $data['results'] = $this->model->do_alterTable($table,$_POST);
+        redirect('somasoft/tables/edit/'.$table);
+    }
+    function do_del($table) {
+        $data['results'] = $this->model->do_delTable($table);
+        redirect('somasoft/indice');
+    }
+}
+?>

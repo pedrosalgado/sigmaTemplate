@@ -1,0 +1,17 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Servicos extends CI_Controller {
+
+	public function __construct() {
+			parent::__construct();
+			$this->load->model('frontoffice_model','model');
+	}
+	
+	public function index()
+	{
+		$res = $this->model->getTextos('servicos');
+		$data['texto'] = $res[0]->title;
+		$data['texto'] = $res[0]->body;
+		$this->load->view('template',$data);
+	}
+}

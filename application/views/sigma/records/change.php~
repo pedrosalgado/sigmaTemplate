@@ -1,0 +1,18 @@
+<?php
+$this->load->view('header.php');
+$this->load->view('sidecontent');
+?>
+
+<div id="mainCnt" class="adminBody" style="">
+
+    <div id="adminMain" style="">
+        <h2>Backoffice - Records</h2>
+        <?php echo $results?>
+
+       
+    </div>
+
+</div>
+<?php
+$this->load->view('footer.php');
+?>

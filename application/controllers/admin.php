@@ -1,0 +1,15 @@
+<?php
+class Admin extends SIGMA_Controller {
+
+    function  __construct() {
+        parent::__construct();
+
+    }
+
+    function index() {
+
+        $this->load->view('intro/index', $this->data);
+    }
+
+}
+?>

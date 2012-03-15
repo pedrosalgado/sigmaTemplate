@@ -1,0 +1,203 @@
+@font-face {
+    font-family: Sigma;
+    src: url('../resources/INTERDIM.ttf');
+}
+
+a {
+    color: #000;
+    text-decoration: none
+}
+body {
+    font-size: 15px;
+    line-height: 18px;
+    position: relative;
+    /*width: 160000px;
+    height: 5000px;*/
+    font-family: Helvetica,Arial,sans-serif;
+    /*overflow: hidden*/
+}
+h1,h2,h3,h5 {
+    font-family: Sigma,Helvetica,Arial,sans-serif;
+}
+.background {
+    position: absolute;
+    z-index: 1; 
+    opacity: 0.5;
+}
+.background.back {
+    background: url(../resources/g3.png) no-repeat scroll center center transparent; 
+}
+.background.front {
+    background: #bbeeff;
+    opacity: 0.3;
+}
+#wrapper {
+    
+    /*position: absolute;
+    top: 2000px;
+    left: 5000px;*/
+    width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    
+}
+.container {
+    width: 1024px;
+}
+#header {
+    height: 100px;
+    padding-top: 20px
+}
+#header div {
+    float: right;
+    line-height: 36px;
+    height: 36px;
+    margin: 0 10px
+}
+#footer {
+    border-top: 1px solid #C5C5C5;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+.sidebar {
+    width: 33%;
+    float: left;
+}
+.top {
+
+    margin-bottom: 20px
+}
+.content {
+    width: 63%;
+    float: right;
+    background: #fff;
+    border: 1px solid #bbEEFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 15px;
+    opacity: 0.8;
+    
+}
+.content .top h2 {
+    text-align: right;
+    font-size: 22px;
+    line-height: 25px;
+}
+.content h3 {
+    margin-bottom: 15px
+}
+.dynamic {
+    
+}
+.dynamic h3 {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right
+}
+
+.dynamic p {
+    font-size: 14px;
+    line-height: 18px
+}
+.hidden {
+    display:none
+}
+#authBox {
+    width: 450px
+}
+.loginLabel {
+    float:right
+}
+.loginForm {
+    width: 350px
+}
+.loginForm p {
+    width: 49%;
+    float: left
+}
+.loginLbl {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 10px;
+    vertical-align: top;
+}
+.leftBrckt {
+    background: url("../resources/leftBracket.png") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 36px;
+    width: 10px;
+}
+.rightBrckt {
+    display: inline-block;
+    width: 12px;
+    height: 36px;
+    background: url("../resources/rightBracket.png") 0 0  no-repeat;
+}
+.flag {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px
+}
+.eng.flag {
+    background: url("../resources/engflag.png") 0 0 no-repeat; 
+}
+.pt.flag {
+    background: url("../resources/ptflag.png") 0 0 no-repeat; 
+}
+.nav li {
+    line-height: 32px;
+    margin-bottom: 10px;
+    height: 32px;
+    cursor:pointer;
+}
+.nav li span {
+    float: left;
+    margin-right: 10px;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url("../resources/ybtn.png") 0 0 no-repeat;
+}
+.nav li span.home {
+    background: url("../resources/homeBtn.png") 0 0 no-repeat;
+}
+.nav li a {
+
+}
+.copyLinks {
+    float:right;
+}
+table {
+    width: 100% !important;
+}
+.prodListFull, .prodListHalf
+{
+    padding: 1%;
+    margin-bottom: 1%;
+    border: 1px solid #999;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.prodListFull {
+    width: 96%;
+    float:left;
+}
+.prodListHalf {
+    margin-right: 10px;
+    float:left;
+    width: 46%;
+}
+.prodImg {
+    float:left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.prodBox {
+    width: 50%;
+    float:left;
+}

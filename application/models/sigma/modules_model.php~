@@ -1,0 +1,168 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * Description of adminfuncs_model
+ *
+ * @author Cego
+ */
+class Modules_model extends CI_Model {
+
+   public function __construct() {
+        parent::__construct();
+	
+    }
+
+    public function getRecords($table, $where = '',$orderby = '') {
+        if(strlen($orderby) > 0 ) $this->db->orderby($orderby);
+        $this->db->from($table);
+        if(strlen($where) > 0 ) $this->db->where($where);
+        $query = $this->db->get();
+//        if($query->num_rows() > 0)
+        return $query->result();
+
+    }
+    function delRecord($table, $id_name, $id) {
+        $this->db->where($id_name,$id);
+        $this->db->delete($table);
+    }
+    function addRecord($table) {
+
+        $fields = $this->db->list_fields($table);
+        $output = form_open('somasoft/records/do_add/'.$table,'class="form"');
+
+        foreach ($fields as $field) {
+            $output .= form_label($field).'<br/>';
+            if($field == 'id') ;
+            else if($field == 'body') $output .= form_textarea($field) .'<br/>';
+            else if(substr($field,0,5) == 'soma_') {
+                foreach($this->getTables() as $table) {
+                    if($field == $table) {
+                        $results = $this->getRecords($table);
+                        $options = array();
+                        foreach($results as $result) $options[$result->id] = $result->nome;
+                        $output .= form_dropdown($field, $options, $field) .'<br/>';
+                    }
+                }
+            }
+            else $output .= form_input($field).'<br/>';
+        }
+        $output .= form_submit('','Inserir').'<br/>';
+        return $output.'</form>';
+    }
+    function do_addRecord($table,$post) {
+        $this->db->set($post);
+        $this->db->insert($table);
+    }
+    function editRecord($table,$id) {
+
+        $records = $this->getRecords($table,'id = '.$id);
+        $output = form_open('somasoft/records/do_edit/'.$table.'/'.$id,'class="form"');
+
+        foreach ($records[0] as $field => $value) {
+            if($field == 'id'); else {
+
+                $output .= form_label($field).'<br/>';
+                if($field == 'body') $output .= form_textarea($field,$value) .'<br/>';
+                else if(substr($field,0,5) == 'soma_') {
+                    $results = $this->getRecords($field);
+                    $options = array();
+                    foreach($results as $result) {
+                        $options[$result->id] = $result->nome;
+                    }
+                    $output .= form_dropdown($field, $options, $value) .'<br/>';
+                }
+                else
+                    $output .= form_input($field,$value) .'<br/>';
+            }
+        }
+        $output .= form_submit('','Editar').'<br/>';
+        return $output.'</form>';
+    }
+    function do_editRecord($table,$post,$id) {
+        $this->db->where('id',$id);
+        $this->db->set($post);
+        $this->db->update($table);
+    }
+    function getFields($table) {
+        return $this->db->list_fields($table);
+    }
+    function getTables() {
+        return $this->db->list_tables();
+    }
+    function getTablesRecords() {
+        $output = array();
+        foreach($this->db->list_tables() as $value) {
+            $records = $this->getRecords($value);
+            $output[$value] = $records;
+        }
+        return $output;
+    }
+    function alterTable($table) {
+        $fields = $this->db->field_data($table);
+        $output = '';
+
+
+        foreach ($fields as $field) {
+            if($field == 'id'); else {
+                $output .= form_open('somasoft/tables/do_edit/'.$table,'class="form"');
+                $output .= form_hidden('old_name',$field->name);
+                $output .= form_input('name',$field->name).' : ';
+                $options = array(strtoupper($field->type) => strtoupper($field->type),'INT' => 'INT','VARCHAR(100)' => 'VARCHAR(100)','TEXT' => 'TEXT','DATE' => 'DATE','BLOB' => 'BLOB');
+                $output .= form_dropdown('type', $options, strtoupper($field->type)) .' : ';
+                $output .= form_input('primary key',$field->primary_key).' : ';
+                $output .= form_submit('delBtn','Apagar').' : ';
+                $output .= form_submit('editBtn','Editar').'<br/>';
+                $output .= '</form>';
+
+            }
+        }
+	
+        return $output;
+    }
+    function do_alterTable($table,$post) {
+        $this->load->dbforge();
+        if(isset($post['delBtn'])) $this->dbforge->drop_column($table, $post['old_name']);
+        else {
+            $fields = array(
+                    $post['old_name']  => array(
+                            'name' => $post['name'],
+                            'type' => strtoupper($post['type'])
+                    )
+            );
+            $this->dbforge->modify_column($table, $fields);
+        }
+
+    }
+    function do_addColTable($table,$post) {
+        $this->load->dbforge();
+        $label = $post['name'];
+        $fields = array(
+                $label => array('type' => 'INT')
+        );
+        $this->dbforge->add_column($table, $fields);
+    }
+    function do_delTable($table) {
+        $this->load->dbforge();
+        $this->dbforge->drop_table($table);
+    }
+    function do_addTable($post) {
+
+        $this->load->dbforge();$this->dbforge->add_key('id', TRUE);
+        $fields = array(
+                        'id' => array(
+                                                 'type' => 'INT',
+                                                 'constraint' => 11,
+                                                 'unsigned' => TRUE,
+                                                 'auto_increment' => TRUE
+                                          ),
+                        'nome' => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '100',
+                                          ),
+            );
+        $name = $post['name'];
+        $this->dbforge->add_field($fields);
+        $this->dbforge->create_table($name, TRUE);
+    }
+}
+?>

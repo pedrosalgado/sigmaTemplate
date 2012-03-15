@@ -1,0 +1,15 @@
+<div class="sidebar">
+
+	<div class="top">
+	<a href="" class="eng flag"></a>
+	<a href="" class="pt flag"></a>
+	</div>
+	
+	<ul class="nav">
+	<li><span class="home"></span><a href="<?php echo base_url(); echo index_page(); ?>/home" class="linkhome"> Home </a></li>
+	<li><span class="act"></span><a href="actividades" class="linkact"> Actividades </a></li>
+	<li><span class="prods"></span><a href="servicos" class="linkprods"> Serviços </a></li>
+	<li><span class="cont"></span><a href="contactos" class="linkcont" > Contactos </a></li>	
+	</ul>	
+	
+	</div>

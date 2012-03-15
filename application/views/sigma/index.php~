@@ -1,0 +1,21 @@
+<?php
+$suffix = 'inventario/';
+$this->load->view('header.php');
+$this->load->view('sidecontent');
+
+?>
+
+
+
+<div id="mainCnt" class="adminBody" style="">
+
+    <div class="adminMain" style="">
+        <h2>Backoffice</h2>
+        <?php $this->load->view('controllers/tabelas');?>
+
+    </div>
+
+</div>
+<?php
+$this->load->view('footer.php');
+?>
