@@ -17,6 +17,7 @@
 //$config['base_url']	= 'http://xtemas.com/aipi/';
 
 //$config['base_url']	= 'http://localhost/base_web_template/';
+
 $config['base_url']	= 'http://localhost/base_web_template/';
 
 /*
